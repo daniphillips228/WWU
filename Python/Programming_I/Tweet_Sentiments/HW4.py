@@ -3,6 +3,7 @@ from simplemapplot import make_us_state_map
 from time import sleep
 
 # How to run: python3 HW4.py, then enter sandwich.txt and search for word sandwich
+# originally used a much bigger txt file with more data but it is too big for github :(
 # then creates an output_state_map.svg file showing the sentiments score for each state
 
 #######################
