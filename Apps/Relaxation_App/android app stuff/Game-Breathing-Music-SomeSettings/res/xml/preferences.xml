@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/audio_category"
+        android:key="pref_sound_settings">
+        <SwitchPreference
+            android:key="pref_music"
+            android:title="@string/toggle_music"
+            android:summary="@string/toggle_music_summ"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/visual_category"
+        android:key="pref_theme_settings">
+        <ListPreference
+            android:key="pref_theme"
+            android:title="@string/toggle_theme"
+            android:summary="@string/toggle_theme_summ"
+            android:entries="@array/pref_theme"
+            android:entryValues="@array/pref_theme_val"
+            android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

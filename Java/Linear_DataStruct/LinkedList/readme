@@ -1,0 +1,11 @@
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                compile instructions                       *
+*                                                           *
+* javac -cp junit.jar LinkedListTest.java LinkedList.java   *
+*                                                           *
+* (Mac OS X and Linux)$ java -cp .:junit.jar LinkedListTest *
+*                                                           *
+* (Windows)> java -cp .;junit.jar LinkedListTest            *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Your goal for this lab is to write a generic singly linked LinkedList class

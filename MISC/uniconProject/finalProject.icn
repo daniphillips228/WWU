@@ -1,0 +1,77 @@
+# Gavin Harris
+# CSCI 410 Language Battle
+# 12/9/16
+
+link options
+import player_stuff
+import timefuncs
+import scoring_stuff
+import dict_stuff
+import board_stuff
+
+procedure main (args)
+
+	player_stuff::init_game(args)
+	grec:=player_stuff::get_game_record()
+	
+	timeInterval:=grec["time_interval"]	
+	xDim:=grec["brdx"]
+	yDim:=grec["brdy"]
+	zDim:=grec["brdz"]
+	
+	d:=load_dict()
+	ld:=make_ldict()
+    tld:=make_tldict()
+
+    every i:=3 to longest_word do
+	{
+	    L:=tld[i]
+	    #write("The number of words of length ",i," is ",*L," they are") 
+	    #every w:=!L do
+		#{ writes(w," ")
+	      #}
+	}
+	
+	brd:=board_stuff::load_board("board")
+
+    
+	repeat
+	{
+		#check watch
+		t:=time_reset()
+		
+	    # get_move fails if the opponents move has not arrived
+	     if their_move:=player_stuff::get_move() then
+		 {
+	
+		 	delta:=time_passed()
+			if delta.sec < (timeInterval - 5) then
+			{
+				#have time to search, keep looking
+
+		    		every row:=1 to yDim do
+					{	
+			    		word:=B2s[1][row])
+						
+						#does dictionary contain any of these words, currently just searching rows for words
+						
+						every i:=3 to *word do
+						word ? while chunk:=move(i) do 
+						    {
+							  if member(tld,chunk) then
+							  {
+							  	procedure make_move(1,row,1,i,row,1,chunk)
+							  }
+						      move(-i + 1)
+						    }					
+
+	        		}
+			}
+			
+			#didnt find a word in time, pass
+			
+		 	procedure make_move(0,0,0,0,0,0,PASS)
+		 	#record move_record (0,0,0,0,0,0,PASS)
+		}	
+	}
+end

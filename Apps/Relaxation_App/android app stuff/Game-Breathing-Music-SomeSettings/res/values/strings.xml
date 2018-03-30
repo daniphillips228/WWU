@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">RelaxApp</string>
+    <string name="breathe_button">Breathe</string>
+    <string name="game_button">Game</string>
+    <string name="home_button">home</string>
+    <string name="setting_button">setting</string>
+    <string name="bubb_button">pop!</string>
+    <string name="point_total">Score: </string>
+    <string name="action_settings">Settings</string>
+    <string name="ninjas">Waterfall</string>
+    <string name="pirates">Tree</string>
+    <string name="audio_category">Audio</string>
+    <string name="visual_category">Visual</string>
+    <string name="toggle_music">Background Music</string>
+    <string name="toggle_music_summ">Plays background music when switched on.</string>
+    <string name="toggle_theme">Themes</string>
+    <string name="toggle_theme_summ">Choose from a variety of themes.</string>
+    <string name="stats_category">Stats</string>
+    <string name="title_activity_splash">SplashActivity</string>
+
+</resources>

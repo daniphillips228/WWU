@@ -1,0 +1,11 @@
+* * * * * * * * * * * * * * * * * * * * * * * *
+* compile instructions                        *
+*                                             *
+* javac Routes.java                           *
+*                                             *
+* java Routes SampleVertex.txt SampleEdge.txt *
+* * * * * * * * * * * * * * * * * * * * * * * *
+
+Most coding was in MyGraph.java in the findRoute function
+where I implemented Dijkstra's algorithm to find either
+the shortest route, cheapest route, or fastest route

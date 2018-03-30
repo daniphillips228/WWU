@@ -1,0 +1,42 @@
+Implement the server and two distinct types of client for a simple online chat 
+application. The first type of client is an observer. Observer clients receive and 
+display a stream of messages from the server in real-time; they do not send any data. 
+The second type of client is a participant. Participant’s primary job is to send messages. 
+In a more sophisticated program, both of these clients would be integrated into a single 
+display. To simplify the implementation of Program 3, we treat these separately. The 
+server should be able to support up to 255 participants, and an equal number of observers.
+
+Command-Line Specification:
+
+The server should take exactly two command-line arguments:
+1. The port on which your server will listen for participants (a uint16_t).
+2. The port on which your server will listen for observers (a uint16_t). 
+
+Either client should take exactly two command-line arguments:
+1. The name or address of the server (e.g. cf416-01.cs.wwu.edu or a 32 bit integer in
+dotted-decimal notation)
+2. The port on which the server is running, a 16-bit unsigned integer
+
+Compilation:
+
+gcc -o chat_server chat_server.c
+gcc -o chat_observer chat_observer.c
+gcc -o chat_participant chat_participant.c
+
+An example command to start the server is:
+./chat_server 36799 46799
+
+An example command to run the participant client is:
+./chat_participant 127.0.0.1 36799
+
+An example command to run the observer client is:
+./chat_observer 127.0.0.1 46799
+
+The protocol is summarized by the following high-level rules:
+
+• When a participant connects, it must negotiate a unique username.
+• Once a participant has confirmed a unique username, it will become an “active partici-
+pant” and may send messages up to 1000 characters at any time.
+• When an observer connects, it must affiliate with one of the participants.
+• Once an observer has affiliated with one of the participants, it will receive all public
+messages as well as private messages sent by or sent to that participant.

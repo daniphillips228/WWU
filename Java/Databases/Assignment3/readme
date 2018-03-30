@@ -1,0 +1,12 @@
+* * * * * * * * * * * * * * *
+* compile instructions      *
+*                           *
+* javac assignment3.java    *
+*                           *
+* java assignment3          *
+* * * * * * * * * * * * * * * 
+
+* Not run-able, database is not available anymore *
+
+Compare the stocks in the johnson330 database against other stocks in the same industry. 
+Store the comparison data in your own database (database name: your username).

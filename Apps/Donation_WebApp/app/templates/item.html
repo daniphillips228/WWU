@@ -1,0 +1,28 @@
+<!--
+    item.html
+
+    this file extends base.html.
+
+    define the content of the item page for an item selected from the database.
+-->
+{% extends "base.html" %}
+	{% block content %}
+<html>
+<body>
+<div>
+
+  <h1>Item</h2>
+  <img class="sealImage" src="../images/eggs.jpg" alt="Item" style="width:300px;height:200px;">
+  <h2><b>Name:</b> {{info['name']}}</h1>
+  <h2><b>Address:</b> {{info['addr']}} </h1>
+  <h2><b>Descrpription:</b> {{info['descrp']}}</h1>
+  <h2><b>Type:</b> {{info['type']}}</h1>
+
+</div>
+
+
+
+
+</body>
+</html>
+	{% endblock %}

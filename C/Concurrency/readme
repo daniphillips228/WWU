@@ -1,0 +1,13 @@
+Compilation:
+
+MPI
+You can install MPICH on your personal computer via the following link: 
+http://www.mpich.org/
+
+To compile the handoff program:
+
+mpicc mpi_handoff.c -o mpi_handoff
+
+To invoke mpi_handoff on 2 processes, issue the following command:
+
+mpirun -n 2 ./mpi_handodff

@@ -1,0 +1,29 @@
+Client and server for a simple (hangman-like) letter guessing game. When the server 
+is started, it is given a “secret” word (a string of characters in the set {a,b,...,z}). 
+Initially, the client has as many guesses as there are characters in the secret word. If 
+a client makes an incorrect guess, the number of guesses left is decremented by one. If a 
+client makes a correct guess, the number of guesses left is unchanged and all instances 
+of that letter are filled in on the board. The interaction continues until the client 
+guesses all of the letters in the word (and thus wins), or runs out guesses and loses.
+
+Command-Line Specification:
+
+The server should take exactly two command-line arguments:
+
+1. The port on which the server will run, a 16-bit unsigned integer
+2. The word that the client must guess, a string of between 1 and 254 lower case letters
+
+The client should take exactly two command-line arguments:
+
+1. The address of the server (e.g. a 32 bit integer in dotted-decimal notation) 
+2. The port on which the server is running, a 16-bit unsigned integer
+
+Compilation:
+gcc -o hangman_server hangman_server.c
+gcc -o hangman_client hangman_client.c
+
+An example command to start the server is:
+./hangman_server 36799 binary
+
+An example command to run the client is:
+./hangman_client 127.0.0.1 36799

@@ -1,0 +1,14 @@
+<!--
+    result.html
+
+    This file contains html for notifying the user to changes in the database by printing msg.
+    msg can contain a number of responses based on the results of insertion or deletion from
+    the database and is largely for our use, not the average user.
+
+    In a finished product this would be invisible to the user.
+-->
+
+{% block content %}
+result of Action: {{ msg }}
+<h2><a href = "\">go back to home page</a></h2>
+{% endblock %}

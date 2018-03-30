@@ -1,0 +1,28 @@
+<!--
+    donate.html
+    This file extends base.html
+
+    Define the content of the donation page with buttons to access the list from the database
+    in each corresponding category.
+-->
+
+{% extends "base.html" %}
+	{% block content %}
+	<h1><font size= "10">Donate Aid</font></h1>
+
+
+	<div class="row marketing">
+        <div class="col-lg-6">
+		<a class="btn btn-lg btn-success" href="{{ url_for('listdonations',aid='donation')}}" role="button"><font size= "5">All Requests</font></a></br><br/>
+        	<a class="btn btn-lg btn-success" href="{{ url_for('showFood',aid='donation')}}" role="button"><font size= "5">Food</font></a> <br/><br/>
+			<a class="btn btn-lg btn-success" href="{{ url_for('showHygiene',aid='donation')}}" role="button"><font size= "5">Hygiene</font></a> <br/><br/>
+			<a class="btn btn-lg btn-success" href="{{ url_for('showOddjobs',aid='donation')}}" role="button"><font size= "5">Odd Jobs</font></a>
+        </div>
+
+        <div class="col-lg-6">
+			<a class="btn btn-lg btn-success" href="{{ url_for('showClothes',aid='donation')}}" role="button"><font size= "5">Clothes</font></a> <br/><br/>
+			<a class="btn btn-lg btn-success" href="{{ url_for('showShelter',aid='donation')}}" role="button"><font size= "5">Shelter</font></a> <br/><br/>
+			<a class="btn btn-lg btn-success" href="{{ url_for('showTransportation',aid='donation')}}" role="button"><font size= "5">Transportation</font></a>
+      	</div>
+	</div>
+	{% endblock %}

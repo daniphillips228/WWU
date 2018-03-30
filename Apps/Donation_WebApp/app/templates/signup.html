@@ -1,0 +1,32 @@
+<!--
+    signup.html
+
+    This file extends base.html
+
+    This file contains the form we were previously using for user signup and login.
+    As this functionality is very important and needs to be done right, we have disabled
+    user signup and login at this time so that future implementation can perform the task
+    in a satisfactory way.
+
+    This file is here for reference use later.
+-->
+
+{% extends "base.html" %}
+{% block content %}
+    <title>Resource Pairing</title>
+
+   
+      <div class="jumbotron">
+        <h1>Resource Pairing Web App</h1>
+        <form class="form-signin">
+        <label for="inputName" class="sr-only">Name</label>
+        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+        
+        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>
+      </form>
+      </div>
+{% endblock %}

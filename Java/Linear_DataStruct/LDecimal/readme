@@ -1,0 +1,9 @@
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                compile instructions                     *
+*                                                         *
+* javac -cp junit.jar LDecimalTest.java                   *
+*                                                         *
+* (Mac OS X and Linux)$ java -cp .:junit.jar LDecimalTest *
+*                                                         *
+* (Windows)> java -cp .;junit.jar LDecimalTest            *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

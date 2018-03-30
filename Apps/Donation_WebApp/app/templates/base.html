@@ -1,0 +1,142 @@
+<!--
+    base.html
+    This file contains the skeleton html code for each of the other templates in our application.
+    Each other template will extend this base page to make it easier to handle 
+    styling and navigation in an efficient manner.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Resource Pairing Web App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Load bootstrap template and validator code -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+  <!-- Script for customizing the length of the sidenav bars to make them look better and 
+        respond how we wanted them to on mobile devices-->
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      height: 100%;
+      padding-top: 20px;
+      background-color: #f1f1f1;
+    }
+    .col-md-2 {
+        height:100%;
+    }
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+  <script>
+$(document).ready(function(){
+    if ($(window).width() > 767) {
+        var vHeight = Math.max($(document).height(), $(window).height());
+        var height = vHeight - 60;
+        cover = $('.sidenav');
+        cover.css({"height":height});
+    }
+});
+$(window).resize(function(){
+    if ($(window).width() > 767) {
+        if ($(document).height() > $(window).height()) {
+          var vheight = $(document).height() - ($(window).height()*(1/($(document).height() - $(window).height())))
+        }
+        else {
+          var vheight = $(window).height()
+        }
+        var height = vheight - 60
+        cover = $('.sidenav');
+        cover.css({"height":height});
+    }
+});
+  </script>
+  </head>
+
+  <body>
+
+  <!-- Define navigation -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Resource Pairing Web App</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li role="presentation" ><a href="/">Home</a></li>
+        <li role="presentation"><a href="/Tutorial">Tutorial</a></li>
+        <li role="presentation"><a href="/enternew">Donate an Item</a></li>
+        <li role="presentation"><a href="/enternewrequest">Request an Item</a></li>
+        <li role="presentation"><a href="/contact">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-md-2 sidenav">
+      <div class="well"><p><a href="Donate" role="button">Donations</a></p></div>
+      <div class="well"><p><a href="Receive" role="button">Requests</a></p></div>
+    </div>
+    <div class="col-md-8 text-left"> 
+    	{% block content %}{% endblock %}
+    </div>
+    <div class="col-md-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Assign Footer text -->
+<footer class="navbar navbar-fixed-bottom" >
+<div class="container text-center">
+  <p>Copyright Western Washington University - Computer Science Department</p>
+</div>
+</footer>
+
+
+</body>
+</html>
+

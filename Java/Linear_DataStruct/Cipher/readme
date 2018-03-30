@@ -1,0 +1,32 @@
+* * * * * * * * * * * * * * * * * * * * *
+* compile instructions:                 *
+* ------------------------------------- *
+* javac GridWriter.java                 *
+*                                       *
+* java GridWriter int int inputfile.txt *
+* ------------------------------------- *
+* javac GridEncrypt.java                *
+*                                       *
+* java GridEncrypt int inputfile.txt    *
+* * * * * * * * * * * * * * * * * * * * * 
+
+see correct arguments below...
+
+
+Answers:
+
+GridWriter: where the second argument is the correct grid length to crack code
+
+1 2 cipher0.txt 
+1 5 cipher1.txt
+1 11 cipher2.txt
+1 4 cipher3.txt
+1 6 cipher4.txt
+
+GridEncrypt: converting the plain text to the cipher version
+
+2 plain0.txt    -> cipher0.txt
+5 plain1.txt    -> cipher1.txt
+11 plain2.txt   -> cipher2.txt
+4 plain3.txt    -> cipher3.txt
+6 plain4.txt    -> cipher4.txt

@@ -1,0 +1,12 @@
+* * * * * * * * * * * * * * * 
+* compile instructions      *
+*                           *
+* javac  assignment2.java   *
+*                           *
+* java assignment2          *
+* * * * * * * * * * * * * * * 
+
+* Not run-able, database is not available anymore *
+
+Using a database of stock price data, write a Java program that computes the gain or loss 
+from the trading strategy.

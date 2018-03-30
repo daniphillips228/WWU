@@ -1,0 +1,14 @@
+* * * * * * * * * * * * * *
+* compile instructions    *
+*                         *
+* javac Deadwood.java     *
+*                         *
+* java Deadwood 2         *
+* * * * * * * * * * * * * *
+
+Arguments for running the program is number of players for the game, game supports 2-8
+If no argument is given you will be prompted to type in a number
+
+Then you must type in a letter to signal what color your token will be on the board
+
+Rules of the game are in a PDF file, too much to include here

@@ -1,0 +1,29 @@
+* * * * * * * * * * * * * *
+* compile instructions    *
+*                         *
+* javac Truffles.java     *
+*                         *
+* java Truffles input.txt *
+* * * * * * * * * * * * * *
+
+The input file will consist of two lines.  
+
+The first line consists of a single positive integer giving the 
+value of MinInterval.   
+
+The second line consists of a sequence of positive integers giving the 
+value of the truffles at positions 0 through M, which can be 0, indicating 
+that truffle has been deposited.  
+
+The output will consist of the positions of the nuggets that maximize 
+the value of your takings, the values at each position, and the total 
+value of your takings.  
+
+For example, if the input file contains the following:
+4 
+1 4 3 2 9 8 7 6 
+The optimal subsequence is 4 + 8 = 12, derived from positions 1 and 5 
+(assuming that position numberings starts at 0). 
+
+Were MinIndex in this case 2, the optimal answer would be 4 + 9 + 7 = 20 
+derived from positions 1, 4, 6.

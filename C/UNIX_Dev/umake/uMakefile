@@ -1,0 +1,30 @@
+work: #work
+	date >> log
+	ls -a > files.txt
+	wc -l < files.txt
+	wc -l < files.txt > line_count
+
+#hello world
+
+hello=echo#variable
+yo= lol
+
+A: B C D E
+	${hello} Target A
+	${hello} More target A
+
+B: C D E
+	${hello} Target B
+	${hello} More target B
+C: D E
+	${hello} Target C
+	echo More target C
+
+hello: hello.c
+	gcc -o hello hello.c
+	echo done
+
+clean:
+	rm hello
+
+all: hello work B

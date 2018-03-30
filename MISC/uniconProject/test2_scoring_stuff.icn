@@ -1,0 +1,8 @@
+import scoring_stuff
+import dict_stuff
+procedure main()
+    d:=dict_stuff::load_dict()
+    every s:= key(d) do {
+	write("Value of ", s, " is " ,scoring_stuff::score(s) )
+    }
+end

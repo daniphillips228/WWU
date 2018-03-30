@@ -1,0 +1,42 @@
+Implement a server and two distinct types of client for a multiplayer Sudoku game. 
+The first type of client is an observer. Observer clients receive and display a stream 
+of messages from the server in real-time; they do not send any data. The second type of 
+client is a participant. Participant’s primary job is to send messages. In a more 
+sophisticated program, both of these clients would be integrated into a single display. 
+To simplify the implementation of Program 2, we treat these separately. The server should 
+be able to support up to 20 participants, and up to 255 observers. Starting with a blank 
+9x9 Sudoku board, players add numbers to the board as fast as they can. Every valid 
+addition earns the player 1 point. Every invalid attempt causes the player to lose 
+1 point. A move is valid if is a number between 1 and 9, and the number does not already 
+appear in the same row nor the same column nor the same 3x3 box (i.e. Sudoku rules). 
+When no valid move has been made for 60 seconds, the round ends, each player’s score is 
+printed, and the next round begins.
+
+Command-Line Specification:
+
+The server should take exactly two command-line arguments:
+1. The port on which the server listen for participants, a 16-bit unsigned integer 
+2. The port on which the server listen for observers, a 16-bit unsigned integer
+
+The participant client should take exactly two command-line arguments:
+1. The address of the server (e.g. a 32 bit integer in dotted-decimal notation)
+2. The port on which the server is running for participants, a 16-bit unsigned integer
+
+The observer client should take exactly two command-line arguments:
+1. The address of the server (e.g. a 32 bit integer in dotted-decimal notation)
+2. The port on which the server is running for observers, a 16-bit unsigned integer
+
+Compilation
+
+gcc -o sudoku_server sudoku_server.c
+gcc -o sudoku_participant sudoku_participant.c
+gcc -o sudoku_observer sudoku_observer.c
+
+An example command to start the server is:
+./sudoku_server 36798 36799
+
+An example command to run the participant client is:
+./sudoku_participant 127.0.0.1 36798
+
+An example command to run the observer client is:
+./sudoku_observer 127.0.0.1 36799

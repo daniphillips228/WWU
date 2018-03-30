@@ -1,0 +1,87 @@
+## create database first
+create database university;
+
+## select the database
+use university;
+
+## department relation
+create table department
+(dept_name varchar (20),
+building varchar (15),
+budget numeric (12,2),
+primary key (dept_name));
+
+select * from department;
+
+insert into department values ('Biology','Watson',90000);
+
+## try to add one more value of same primary key (it will give an error)
+insert into department values ('Biology','Watson',90000);
+
+## try to add null value for primary key (it will give an error)
+insert into department values (null,'Watson',90000);
+
+insert into department values ('Comp. Sci.','Taylor',100000);
+insert into department values ('Elec. Eng.','Taylor',85000);
+
+select * from department;
+
+## Alter table
+alter table department add room_no varchar(4);
+alter table department drop room_no;
+
+alter table department add room_no varchar(4) not null;
+alter table department drop room_no;
+
+## course relation
+## it will give an error
+create table course
+(course_id varchar (7),
+title varchar (50),
+building varchar (15),
+dept_name varchar (20),
+credits numeric (2,0),
+primary key (course_id),
+foreign key (dept_name) references department); 
+
+
+create table course
+(course_id varchar (7),
+title varchar (50),
+building varchar (15),
+dept_name varchar (20),
+credits numeric (2,0),
+primary key (course_id),
+foreign key (dept_name) references department(dept_name)); # See the difference from SQL syntax from book
+
+select * from course;
+
+insert into course values ('BIO-101', 'Intro. to Biology','Biology', 4);
+insert into course values ('BIO-301','Genetics','Biology',4);
+insert into course values ('BIO-399','Computational Biology','Biology',3);
+
+select * from course;
+
+create table instructor
+(ID varchar (5),
+name varchar (20) not null,
+dept_name varchar (20),
+salary numeric (8,2),
+primary key (ID),
+foreign key (dept_name) references department(dept_name));
+
+select * from instructor;
+
+insert into instructor values (10101, 'Srinivasan', 'Comp. Sci.', 65000);
+insert into instructor values (76766, 'Crick', 'Biology', 72000);
+insert into instructor values (45565, 'Katz', 'Comp. Sci.', 75000);
+insert into instructor values (83821, 'Brandt', 'Comp. Sci.', 92000);
+insert into instructor values (98345, 'Kim', 'Elec. Eng.', 80000);
+
+## it will give an error 
+insert into instructor values (12121, 'Wu', 'Finance', 90000);
+
+
+select dept_name from instructor;
+select distinct dept_name from instructor;
+

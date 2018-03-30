@@ -1,0 +1,29 @@
+<!--
+    receive.html
+
+    This file extends base.html
+
+    Contains the html for the Requests page and the buttons to view the requests in each
+    category.
+-->
+
+{% extends "base.html" %}
+{% block content %}
+	<h1><font size= "10">Receive Aid</font></h1>
+
+	<div class="row marketing">
+        <br>
+	<div class="col-lg-6">
+		<a class="btn btn-lg btn-success" href="/listrequests" role="button"><font size= "5">All Requests</font></a></br><br/>
+		<a class="btn btn-lg btn-success" href="{{ url_for('showFood',aid='request')}}" role="button"><font size= "5">Food</font></a> <br/><br/>
+			<a class="btn btn-lg btn-success" href="{{ url_for('showHygiene', aid='request')}}" role="button"><font size= "5">Hygiene</font></a> <br/><br/>
+			<a class="btn btn-lg btn-success" href="{{ url_for('showOddjobs', aid='request')}}" role="button"><font size= "5">Odd Jobs</font></a>
+        </div>
+
+        <div class="col-lg-6">
+			<a class="btn btn-lg btn-success" href="{{ url_for('showClothes', aid='request')}}" role="button"><font size= "5">Clothes</font></a> <br/><br/>
+			<a class="btn btn-lg btn-success" href="{{ url_for('showShelter', aid='request')}}" role="button"><font size= "5">Shelter</font></a> <br/><br/>
+			<a class="btn btn-lg btn-success" href="{{ url_for('showTransportation', aid='request')}}" role="button"><font size= "5">Transportation</font></a>
+      	</div>
+	</div>
+{% endblock %}

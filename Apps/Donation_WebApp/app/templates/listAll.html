@@ -1,0 +1,219 @@
+<!--
+    listAll.html
+
+    This file extends base.html.
+
+    Define the content of the list a category selected from either the donations or
+    Requests page.
+
+    Also defines the logic for looping through and creating the bootstrap accordion list
+    using jinja syntax.
+
+    Contains a basic table representation in comments for testing and reference purposes.
+-->
+
+{% extends "searchResults.html" %}
+{% block found %}
+<br><br>
+<!--
+<div class="col-xs-6">
+	<table border = 1>
+		<thead>
+			<td>Name</td>
+			<td>Address</td>
+			<td>City</td>
+			<td>descrpcode</td>
+			<td>Type</td>
+		</thead>
+
+		{% for row in rows %}
+			<tr>
+				<td>{{row["name"]}}</td>
+				<td>{{row["addr"]}}</td>
+				<td>{{row["city"]}}</td>
+				<td>{{row["descrp"]}}</td>
+				<td>{{row["Type"]}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+<br><br><br><br><br>
+!-->
+<h1>{{title}}</h1>
+{%if donDict['foodRowsSize'] > 0 %}
+<div class="panel-group" id="accordion1">
+  <h2><font size="6">All Food Tables</font></h2>
+{% for row in donDict['foodRows'] %}
+
+  <div class="panel panel-default" style="width:75%" data-toggle="collapse" data-parent="#accordion1" href="#collapse{{ loop.index }}1">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a ><font size="3">
+        {{row["name"]}}</a></font>
+      </h4>
+    </div>
+    <div id="collapse{{loop.index}}1" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table>
+      <tr ><font size="3">{{row["descrp"]}}</font></tr>
+        </table>
+        {% set id = row["fileid"] %}
+        {% set tableType = row["type"] %}
+        <button class="btn" onclick="location.href='{{ url_for('item',fileid=id, type=tableType)}}'" type="submit">Go to this Item</button>
+        <button class="btn" onclick="location.href='{{ url_for('delete',fileid=id, type=tableType)}}'" type="submit">Delete this Item</button>
+
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{%endif%}
+
+{%if donDict['hygieneRowsSize'] > 0 %}
+<div class="panel-group" id="accordion2">
+  <h2><font size="6">All Hygine</font></h2>
+{% for row in donDict['hygieneRows'] %}
+
+  <div class="panel panel-default" style="width:75%" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ loop.index }}2">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a ><font size="4">
+        {{row["name"]}}</a></font>
+      </h4>
+    </div>
+    <div id="collapse{{loop.index}}2" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table>
+      <tr ><font size="3">{{row["descrp"]}}</font></tr>
+        </table>
+        {% set id = row["fileid"] %}
+        {% set tableType = row["type"] %}
+        <button class="btn" onclick="location.href='{{ url_for('item',fileid=id, type=tableType)}}'" type="submit">Go to this Item</button>
+        <button class="btn" onclick="location.href='{{ url_for('delete',fileid=id, type=tableType)}}'" type="submit">Delete this Item</button>
+
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{%endif%}
+
+{%if donDict['jobsRowSize'] > 0 %}
+
+<div class="panel-group" id="accordion3">
+  <h2><font size = "6">All Jobs</font></h2>
+{% for row in donDict['jobsRow'] %}
+
+  <div class="panel panel-default" style="width:75%" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}3">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a ><font size="4">
+        {{row["name"]}}</a></font>
+      </h4>
+    </div>
+    <div id="collapse{{loop.index}}3" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table>
+      <tr ><font size="3">{{row["descrp"]}}</font></tr>
+        </table>
+        {% set id = row["fileid"] %}
+        {% set tableType = row["type"] %}
+        <button class="btn" onclick="location.href='{{ url_for('item',fileid=id, type=tableType)}}'" type="submit">Go to this Item</button>
+        <button class="btn" onclick="location.href='{{ url_for('delete',fileid=id, type=tableType)}}'" type="submit">Delete this Item</button>
+
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{%endif%}
+
+{%if donDict['clothesRowsSize'] > 0 %}
+<div class="panel-group" id="accordion4">
+  <h2><font size = "6">All Clothes</font></h2>
+{% for row in donDict['clothesRows'] %}
+
+  <div class="panel panel-default" style="width:75%" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}4">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a ><font size="4">
+        {{row["name"]}}</a></font>
+      </h4>
+    </div>
+    <div id="collapse{{loop.index}}4" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table>
+      <tr ><font size="3">{{row["descrp"]}}</font></tr>
+        </table>
+        {% set id = row["fileid"] %}
+        {% set tableType = row["type"] %}
+        <button class="btn" onclick="location.href='{{ url_for('item',fileid=id, type=tableType)}}'" type="submit">Go to this Item</button>
+        <button class="btn" onclick="location.href='{{ url_for('delete',fileid=id, type=tableType)}}'" type="submit">Delete this Item</button>
+
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{%endif%}
+
+{%if donDict['shelterRowsSize'] > 0 %}
+<div class="panel-group" id="accordion5">
+<h2><font size = "6" >All Shelter</font></h2>
+{% for row in donDict['shelterRows'] %}
+
+
+  <div class="panel panel-default" style="width:75%" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}5">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a ><font size="4">
+        {{row["name"]}}</a></font>
+      </h4>
+    </div>
+    <div id="collapse{{loop.index}}5" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table>
+      <tr ><font size="3">{{row["descrp"]}}</font></tr>
+        </table>
+        {% set id = row["fileid"] %}
+        {% set tableType = row["type"] %}
+        <button class="btn" onclick="location.href='{{ url_for('item',fileid=id, type=tableType)}}'" type="submit">Go to this Item</button>
+        <button class="btn" onclick="location.href='{{ url_for('delete',fileid=id, type=tableType)}}'" type="submit">Delete this Item</button>
+
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{%endif%}
+
+{%if donDict['transportationRowsSize'] > 0 %}
+<div class="panel-group" id="accordion6">
+  <h2><font size="6">All Transportation</font></h2>
+{% for row in donDict['transportationRows'] %}
+
+  <div class="panel panel-default" style="width:75%" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}6">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a ><font size="4">
+        {{row["name"]}}</a></font>
+      </h4>
+    </div>
+    <div id="collapse{{loop.index}}6" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table>
+      <tr ><font size="3">{{row["descrp"]}}</font></tr>
+        </table>
+        {% set id = row["fileid"] %}
+        {% set tableType = row["type"] %}
+        <button class="btn" onclick="location.href='{{ url_for('item',fileid=id, type=tableType)}}'" type="submit">Go to this Item</button>
+        <button class="btn" onclick="location.href='{{ url_for('delete',fileid=id, type=tableType)}}'" type="submit">Delete this Item</button>
+
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{%endif%}
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<!--
+    student.html
+
+    This file extends base.html
+
+    This file contains the html for the form to insert donations into our database.
+    It uses form validation as provided by google and basic pattern matching.
+-->
+
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+<form action = "{{ url_for('addrec') }}" method = "POST" data-toggle="validator" role="form">
+	<h1>Donate.</h1>
+	<br>
+
+	<div class="form-group has-feedback">
+	<input type = "text" name = "nm" class="form-control" placeholder="Name" pattern="^[A-z\s]{1,}$" required >
+	<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+	<!-- <div class="help-block with-errors"></div> -->
+	</div>
+
+	<div class="form-group has-feedback">
+	<textarea name = "add" class="form-control" placeholder="Address" pattern="^[A-z0-9\s]{1,}$" required></textarea>
+	<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+	<!-- <div class="help-block with-errors"></div> -->
+	</div>
+	
+	<div class="form-group has-feedback">
+	<input type = "text" name = "city" class="form-control" placeholder="City" pattern="^[A-z\s]{1,}$" required>
+	<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+	<!-- <div class="help-block with-errors"></div> -->
+	</div>
+	
+	<div class="form-group has-feedback">
+	<textarea name = "descrp" name = "descrp" class="form-control" placeholder="Description" pattern="^[A-z0-9\s]{1,}$" required></textarea>
+	<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+	<!-- <div class="help-block with-errors"></div> -->
+	</div>
+	
+    <select name = "Type" class="form-control" placeholder="Type"> >
+		<option value="food">Food</option>
+		<option value="clothes">Clothes</option>
+		<option value="hygiene">Hygiene</option>
+		<option value="shelter">Sheleter</option>
+		<option value="jobs">Jobs</option>
+		<option value="transportation">Transportation</option>
+	</select><br>
+	<input type="hidden" value="donation" name="aid"/>
+	<input type = "submit" value = "submit" /><br>
+</form>
+</div>
+{% endblock %}

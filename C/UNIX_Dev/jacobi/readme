@@ -1,0 +1,19 @@
+Compile instructions:
+
+The object file must be compiled with the "-pthread" flag
+
+gcc -o jacobi jacobi.c line_parse.c -pthread
+
+In order to run the program:
+
+	The input.mtx must be in the same directory as jacobi binary
+	
+	There must be two arguments:
+	- name of the input file
+	- number of threads
+	
+	ex. ./jacobi input.mtx 4
+
+Optional: The program contains an optional solution checker
+	To use the solution validation fuction: Put the solution file "output.mtx" in the 
+	same directory as jacobi binary else the program ignores the function

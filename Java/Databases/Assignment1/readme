@@ -1,0 +1,20 @@
+* * * * * * * * * * * * * * * * * * * * * * * * 
+* compile instructions                        *
+*                                             *
+* javac assignment1.java                      *
+*                                             *
+* java assignment1 Stockmarket-1990-2015.txt  *
+* * * * * * * * * * * * * * * * * * * * * * * * 
+
+1. For each company, identify the crazy days in terms of stock price fluctuation. 
+Here is how to calculate the crazy days. Suppose at Date D, the high price of the share 
+of company X is Hx and Low price is Lx. Then D will be called crazy day if (Hx-Lx)/Hx >= 15%
+
+2. For each company, identify stock splits, we will use the following definition:
+Cx is the closing price on day x and O(x+1) is the opening price on the next trading day 
+x + 1.
+
+Definitions:
+A 2:1 stock split occurs if | Cx / O(x+1) – 2.0| < 0.05
+A 3:1 stock split occurs if | Cx / O(x+1) – 3.0| < 0.05
+A 3:2 stock split occurs if | Cx / O(x+1) – 1.5| < 0.05

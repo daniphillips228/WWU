@@ -1,0 +1,7 @@
+* * * * * * * * * * * * * * *
+* compile instructions      *
+*                           *
+* javac UpToNoGood.java     *
+*                           *
+* java -Xmx2048M UpToNoGood *
+* * * * * * * * * * * * * * *

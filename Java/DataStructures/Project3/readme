@@ -1,0 +1,11 @@
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* compile instructions                                                    *
+*                                                                         *
+* javac Route.java                                                        *
+*                                                                         *
+* java Route yob2010.txt yob2011.txt yob2012.txt yob2013.txt yob2014.txt  *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Did not save myself a completed version of this on my laptop, (completed back in 2015 
+on a school computer) but options 1, 4, & 5 work completely and option 2 works for 
+Females but not males.

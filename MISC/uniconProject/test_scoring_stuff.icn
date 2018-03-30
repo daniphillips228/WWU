@@ -1,0 +1,5 @@
+import scoring_stuff
+procedure main()
+    s:="abc"
+    write ("Value of ",s," is ",score(s))
+end

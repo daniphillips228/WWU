@@ -1,0 +1,6 @@
+link strings
+
+procedure main()
+s:="12345"
+every w:=permutes(s) do write(w)
+end

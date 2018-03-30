@@ -1,0 +1,18 @@
+<!--
+    searchResults.html
+
+    This file extends base.html
+
+    This file is a skeleton for the various search result pages that we will be
+    displaying when the user selects a category from the requests or donations pages.
+-->
+
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+      <div class="row marketing">
+      </div>
+      {% block found %}{% endblock %}
+
+    </div>
+{% endblock %}

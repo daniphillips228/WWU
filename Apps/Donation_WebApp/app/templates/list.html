@@ -1,0 +1,62 @@
+<!--
+    list.html
+
+This file extends searchResults.html.
+
+Defines the html and jinja syntax for listing all items in the selected category as a bootstrap
+accordion.
+-->
+
+{% extends "searchResults.html" %}
+{% block found %}
+<br><br>
+<!--
+<div class="col-xs-6">
+	<table border = 1>
+		<thead>
+			<td>Name</td>
+			<td>Address</td>
+			<td>City</td>
+			<td>descrpcode</td>
+			<td>Type</td>
+		</thead>
+
+		{% for row in rows %}
+			<tr>
+				<td>{{row["name"]}}</td>
+				<td>{{row["addr"]}}</td>
+				<td>{{row["city"]}}</td>
+				<td>{{row["descrp"]}}</td>
+				<td>{{row["Type"]}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+<br><br><br><br><br>
+!-->
+<div class="panel-group" id="accordion">
+  <h1><font size="8">{{title}}</font></h1>
+{% for row in rows %}
+  <div class="panel panel-default" style="width:75%" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ loop.index }}">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a ><font size="5">
+        {{row["name"]}}</a></font>
+      </h4>
+    </div>
+    <div id="collapse{{loop.index}}" class="panel-collapse collapse">
+      <div class="panel-body">
+        <table>
+      <tr ><font size="4">{{row["descrp"]}}</font></tr>
+        </table>
+        {% set id = row["fileid"] %}
+        {% set tableType = row["type"] %}
+        <button class="btn" onclick="location.href='{{ url_for('item',fileid=id, type=tableType)}}'" type="submit">Go to this Item</button>
+        <button class="btn" onclick="location.href='{{ url_for('delete',fileid=id, type=tableType)}}'" type="submit">Delete this Item</button>
+
+    </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

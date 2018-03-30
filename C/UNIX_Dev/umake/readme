@@ -1,0 +1,7 @@
+Compilation:
+
+gcc -Wall -o umake arg_parse.c target.c umake.c
+
+./umake "target names"
+
+where "target names" are the targets you want compiled

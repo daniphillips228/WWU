@@ -1,0 +1,131 @@
+# ok having issues with Unicon select only working on network connection so lets take the bull by the horns
+# player.icn
+# uses functions provided in play_stuff to do ll the I/O to the varous servers
+#
+link options
+import player_stuff
+import timefuncs
+
+procedure fry_some_fish(n)
+# just some nonsense representing the place in your code where you would be doing your searching for a move
+    static m
+    static b
+    initial {
+	m:=42
+	b:=17
+    }
+    every i:=1 to n do
+	{   # here is where I might be resuming some co-expressions that are running through
+	    #  the search space. Of course, I need to keep track of how much time I take up before checking to
+		# see if the other players move has arriaved
+	    every x:= 1 to 1000 do {
+		y:= m *  x + b
+	    }
+	}
+end
+
+procedure main (args)
+	# Must always call the init_game procedure first or your program is not legal
+    # this contacts a server to register that you want to play a match
+    # it waits till both players have registered and then arranges to have them connect to a referee server
+    # that will conduct you game. The referee server is started by the registration server after all the game parameters have been
+    # verified as agreed to by you and your opponent Any discrepancy between you and your opponent able the game parameters reults
+    # in an error message and the programs stop
+    
+    player_stuff::init_game(args)
+
+    # A dictionary and a board file have automatically been downloaded from the referee and placed in files name dict and board at this point
+    # You can use the procedures in the dict_stuff and board_stuff packages if you wish to load them into your program
+    # When you return from the init_game call the "preparation time period" agreed to by the players has begun
+    # after that amount of time the referee will send the START move to the white player
+    
+    grec:=player_stuff::get_game_record()
+    
+    # get_game-record is how you get all the paramters for the game
+    # grec is a record with these fields
+    # (name,me_bw,opponent_name,opp_bw,time_interval,brdx,brdy,brdz,maxrounds,maxtime,preptime)
+    # see top of package file player_stuff.icn The meaning of the fields is as follows
+    # name your login id
+    # me_bw a b if you are playing black a w  if you are playing white
+    # name_opponent  your opponents login id
+    # opp_bw the color your opponent is playing b or w the opposite of yours
+    # time_interval the number of seconds you are allow to make a move from the time your opponents move arrives
+    # brdx,brdy,brdz are the dimensions of the board for this game
+    # maxrounds is the number of moves that will be allowed before the game is terminated
+    # maxtime is the amount of wall clock time that the game will be allowed to take
+    # preptime once players are hookewd up to the referee and you gain control after returning from init_game the referee
+    # will wait this amount of time before sending the whit player the indication to begin the timer for the first move
+    # this allows you to do whatever startup chores you need to accomplish like loading the dictionary etc before
+    # the clock start running for you to generate your first move
+    # all of this came from command line parameters. The regitration server that got you mated up with your opponent has verified
+    # that you have agreed to all the paramters for the game
+    #
+    # The code block below just simulates the probable structure of your program that will periodically look to see
+    # if there was input and if not go about some other business You don't need to conform to this structure it is just here to
+	# show you the names of the procedures you call to get a move and make a move
+
+# Note that if you are the white player then the first "MOVE" you get is just a blank dummy move consisting of all zeroes
+# and the word START where the word would normally be
+# This is just to let you know that you move timer has been started for your first move
+    
+
+	ld:=make_ldict()
+	write("To see the words and their sizes pulled from this list of lists press enter")
+        read(r)
+    	every L:=!ld do { write(L[1],"\t",L[2]) }
+
+
+    repeat
+	{
+	    # check your watch
+	    #if all zeros and start
+
+	    # get_move fails if the opponents move has not arrived
+	     if their_move:=player_stuff::get_move() then
+		 {   # They moved its your turn!
+		     # use the rest of your time interval to generate at move
+		     # their_move is a move_record with these fields
+		     # (sx,sy,sz,ex,ey,ez,word) the beginning and ending coordinates and the word
+		     # note get_move() fails in the Unicon sense of fail if a move it not ready yet
+		     # if all the x y Z field come back as 0 then the word field contains one of
+		     # PASSW PASSB START TIMEOUTB TIMEOUTW ROUNDS CLOCK PASSES ERRORW ERRORB
+		     # The PASSW and PASSB are how we tell you the other player passed depending of whether they are
+		     # B or W
+		     # START is given to the white player at the end of the preptime period to tell it to make
+		     # the first move
+		     # TIMEOUT B/W is the referee telling you the game is over because B/W didn't move
+		     # withing the alloted time
+		     # ROUNDS is the referee saying that the game is over because the agrred upon total round have been played
+		     # CLOCK is the referee saying the game is over because the wall clock time agreed upon for the match
+		     # has expired
+		     # PASSES is the referee telling you the game is over because both players have made 3
+		     # consecutive pass moves
+		     # ERROR B/W means an illegal move was make the message
+		     # my code that handles the moves before you get them will put an explanatory message on the screen
+		     # at any rate the game is over. Could be bad coordinates or the WORD they claimed can't be made from the
+		     # block of letters or the word is not in the dictionary etc
+		     # you make your move by calling play_stuff::make_move and hading it a move_record
+		     # eventually you would call player_stuff::make_move(mrec)
+             # mrec is a move record as defined in play_stuff it looks like this
+		     # record move_record (sx,sy,sz,ex,ey,ez,word)
+		     # you just fill in the fields and give it to make_move
+		     # To make a pass move you put all 0's in the coordinates and the word PASS in the word field 
+		     
+		     #get input
+
+
+		     #make a pass for now
+
+
+			#adjust board 
+			#find words from adjusted board
+
+		     record move_record (0,0,0,0,0,0,PASS)
+
+		     
+		 }
+	     #look for moves while its not my turn
+	     fry_some_fish(100)
+	 }
+ end
+     

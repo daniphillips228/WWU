@@ -1,0 +1,20 @@
+import timefuncs
+procedure main()
+    t:=time_reset()
+    write("Base time at entry was     ",t.sec," seconds and ",t.usec," microsecomds")
+    delta:=time_passed()
+    write("Time passed since entry is ",delta.sec," seconds and ",delta.usec," microsecomds")
+    write("Reseting Interval")
+    t2:=time_reset()
+    write("Time at reset was     ",t2.sec," seconds and ",t2.usec," microsecomds")
+    delta:=time_passed()
+    write("Time passed since reset is ",delta.sec," seconds and ",delta.usec," microsecomds")
+    write("Doing something to eat up some time")
+    every i:= 1 to 1000000 do x:=i+2*i+3*i
+    delta:=time_passed()
+    write("Time passed since reset is ",delta.sec," seconds and ",delta.usec," microsecomds")
+    write("Eat up some more time")
+    every i:= 1 to 1000000 do x:=i+2*i+3*i
+    delta:=time_passed()
+    write("Time passed since reset is ",delta.sec," seconds and ",delta.usec," microsecomds")
+end

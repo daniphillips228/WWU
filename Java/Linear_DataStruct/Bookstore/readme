@@ -1,0 +1,29 @@
+* * * * * * * * * * * * * * * * * * * * * * * * * 
+* compile instructions                          *
+*                                               *
+* javac BookInventory.java                      *
+*                                               *
+* java BookInventory Books.txt Transactions.txt *
+* * * * * * * * * * * * * * * * * * * * * * * * * 
+
+A book store stocks a number of book titles. The provided file Books.txt gives the details 
+of the inventory, one book per line, giving the ISBN, price and current stock amount. 
+Transactions for the inventory system are provided in the file Transactions.txt. Two 
+types of transactions have to be handled by the inventory system:
+
+- STOCK transactions, which specifies the ISBN of a book, and the number of copies of that 
+book to be added to stock.
+
+- ORDER transactions, each of which specifies the ISBN of the book being ordered, the 
+number of copies of the book requested by the customer, and a 6-digit customer number.
+
+If an order cannot be filled completely because of insufficient stock, the unfilled part 
+of the order (the entire order if there is zero stock) must be placed on a queue of back 
+orders for that book.
+
+When new stock is received for a book, the inventory system must work through the back 
+order queue for that book, filling as many back orders as it can. If a back order can 
+only be partly filled before the stock level of the book drops to zero, the unfilled 
+remainder of that back order must remain at the head of the back order queue for that book.
+
+You must use the provided queue type (Queue.java) for your back order queues.

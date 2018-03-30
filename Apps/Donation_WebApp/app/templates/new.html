@@ -1,0 +1,31 @@
+<!--
+    new.html
+
+    This file extends base.html
+
+    Contains the html for an insertion form.
+    I believe the page is no longer in use but is here for further development in the future.
+-->
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+<form action = "{{ url for('addrec'}}" method = "POST">
+	<h3>Student Information</h3>
+	name<br>
+	<input type = "text" name = "nm" /></br>
+
+	Address<br>
+	<textarea name = "add" ></textarea><br>
+	
+	City<br>
+	<input type = "text" name = "city" /><br>
+	
+	descrpCODE<br>
+	<input type = "text" name = "descrp" /><br>
+	
+	Type<br>
+	<input type = "Type" name = "Type" /><br>
+	<input type = "submit" value = "submit" /><br>
+</form>
+</div>
+{% endblock %}

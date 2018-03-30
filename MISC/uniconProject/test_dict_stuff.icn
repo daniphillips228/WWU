@@ -1,0 +1,36 @@
+import dict_stuff
+procedure main()
+    d:=load_dict()
+    write("There are ",dict_stuff::number_dict_words," words in the dictionary")
+    write("All the words in the dictionary have been stored in a hash table, the key is the word, the value is its length")
+    write("Press enter to see all the words in the dictionary and their sizes pulled from this table")
+    read(r)
+    every x:=key(d) do
+	{ write(x,"\t",d[x]) }
+    write("I will now turn the dictionary table into a list each entry of which is a list with two elements, a word and its length")
+    write("Press enter to do this")
+    read(r)
+    ld:=make_ldict()
+    write("To see the words and their sizes pulled from this list of lists press enter")
+    read(r)
+    every L:=!ld do { write(L[1],"\t",L[2]) }
+    write("I will now create a table with subscripts from 3 to longest word size")
+    write("each entry in the table will be a list of all the words of that size")
+    write("Press enter to do this")
+    read(r)
+    tld:=make_tldict()
+    write("Press enter to see all the words in the dictionary pulled from this table of lists from shortest length to longest")
+    read(r)
+    every i:=3 to longest_word do
+	{
+	    L:=tld[i]
+	    write("The number of words of length ",i," is ",*L," they are") 
+	    every w:=!L do
+		{ writes(w," ")
+	      }
+	    write()
+	    write()
+	}
+    write("This has illustrated how to put the dictionary into various forms you might (or might not) like to have")
+    write("Bye")
+end

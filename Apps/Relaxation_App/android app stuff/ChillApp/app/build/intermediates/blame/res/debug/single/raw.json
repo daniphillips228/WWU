@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/wendlir/AndroidStudioProjects/ChillApp/app/build/intermediates/res/merged/debug/raw/bossfight.mp3",
+        "source": "/home/wendlir/AndroidStudioProjects/ChillApp/app/src/main/res/raw/bossfight.mp3"
+    },
+    {
+        "merged": "/home/wendlir/AndroidStudioProjects/ChillApp/app/build/intermediates/res/merged/debug/raw/bubble.jpg",
+        "source": "/home/wendlir/AndroidStudioProjects/ChillApp/app/src/main/res/raw/bubble.jpg"
+    }
+]

@@ -1,0 +1,28 @@
+(define (Transitive? L)
+  (Transitive2 L L)
+)
+(define (Transitive2 L1 L2)
+  (cond ((null? L1)#f)
+        (else 
+  (TransitiveAux (car L1)(cdr L1) L2 L2 L2)))
+)  
+  
+(define (TransitiveAux S1 S2 C L C2)
+  ;if we've checked all
+          (cond ((empty? C)#f)
+
+          (else
+           ;special case ex (1 1)
+           (cond ((equal? (car (cdr S1)) (car (car C)))
+                  (cond((or (empty? C2) (empty? (car C2)))#f)
+                       (else
+                  (cond((equal? (list (car S1) (car (cdr (car C)))) (car C2))#t)                 
+
+                         (else
+                          (TransitiveAux S1 S2 C L (cdr C2)))
+           ))))
+                 (else
+                          (TransitiveAux S1 S2 (cdr C) L C2))
+                 ))
+    )
+ )
